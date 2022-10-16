@@ -19,9 +19,12 @@ font-size: 150%;
 }  
 
 .questions-card{
-  height: 175px;
+  height: 100px;
 }
 
+.responses-card{
+  
+}
 
 #start-button{
   text-align: center;
