@@ -5,8 +5,12 @@
 -Allow user to select their response
 -Time the quiz
 */
+let score = 0;
+let timer = 60;
+
 
 displayedQuestion = 0;
+
 
 let questions = [
   {
@@ -18,9 +22,8 @@ let questions = [
     question: 'Which of the following functions will serialize an object into a JSON string?',
     responses: ['parse()', 'convert()', 'stringify()'],
     answer: 'stringify()',
-
   },
-];
+]
 
 const showQuestion = () => {
   document.getElementById("question").innerHTML= `
@@ -30,17 +33,39 @@ const showQuestion = () => {
   `
 
   document.getElementById("response").innerHTML= `
-  <p>
+  <p
+  class="response"
+  data-response='${questions[displayedQuestion].responses[0]}'
+  data-answer='${questions[displayedQuestion].answer}'
+  >
   ${questions[displayedQuestion].responses[0]}
   </p>
-  <p>
+  <p
+  class="response"
+  data-response='${questions[displayedQuestion].responses[1]}'
+  data-answer='${questions[displayedQuestion].answer}'
+  >
   ${questions[displayedQuestion].responses[1]}
   </p>
-  <p>
+  <p
+  class="response"
+  data-response='${questions[displayedQuestion].responses[2]}'
+  data-answer='${questions[displayedQuestion].answer}'
+  >
   ${questions[displayedQuestion].responses[2]}
   </p>
   `
 }
+
+document.addEventListener('click', event => {
+  if(event.target.classList.contains('response')) {
+    if(event.target.dataset.response==event.target.dataset.answer) {
+      displayedQuestion += 1
+      score += 5
+      showQuestion()
+    }
+  }
+})
 
 
 
