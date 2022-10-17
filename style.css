@@ -13,18 +13,24 @@ header {
 font-size: 150%;
 }
 
+{
+  
+}
+
+.hide-button {
+  display:none; 
+}
+
 .hide-quiz{
   display: none;
 
 }  
 
 .questions-card{
-  height: 100px;
+  height: 75px;
 }
 
-.responses-card{
-  
-}
+
 
 #start-button{
   text-align: center;

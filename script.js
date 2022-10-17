@@ -28,13 +28,19 @@ let questions = [
 ]
 
 const showQuestion = () => {
-  document.getElementById("questionDiv").innerHTML = `
+  if (displayedQuestion == questions.length) {
+    document.getElementById("quiz").innerHTML = `
+    <h1>You have completed the quiz!</h1>
+    <h3>Score: ${score}/25</h3> 
+  `
+  } else {
+    document.getElementById("questionDiv").innerHTML = `
   <p>
   ${questions[displayedQuestion].question}
   </p>
   `
 
-  document.getElementById("responseDiv").innerHTML = `
+    document.getElementById("responseDiv").innerHTML = `
   <p
   class="response"
   data-response='${questions[displayedQuestion].responses[0]}'
@@ -56,7 +62,7 @@ const showQuestion = () => {
   >
   ${questions[displayedQuestion].responses[2]}
   </p>
-  `
+  `}
 }
 
 
@@ -76,6 +82,9 @@ document.addEventListener('click', event => {
   }
 })
 
+const endQuiz = () => {
+
+}
 
 const countdownStart = () => {
   if (timer <= 0) {
@@ -91,14 +100,18 @@ const countdownStart = () => {
 }
 
 
-
 const timeAtZero = () => {
   clearInterval()
   document.getElementById("quiz").innerHTML = `
   <h1>
-  You have run out of time, please try again! 
+  You have run out of time, please refresh the page to try again! 
   </h1>
+  <h2>
+  Score: ${score}/10
+  </h2>
   `
+  document.getElementById("start-button").classList.add("hide-button")
+
 }
 
 document.getElementById("start-button").addEventListener('click', event => {
