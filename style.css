@@ -23,8 +23,12 @@ font-size: 150%;
 
 .hide-quiz{
   display: none;
-
 }  
+
+.hide-form{
+  display:none;
+}
+
 
 .questions-card{
   height: 75px;
