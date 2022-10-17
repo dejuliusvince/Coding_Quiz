@@ -9,6 +9,8 @@ let score = 0
 let timer = 60
 
 
+
+
 displayedQuestion = 0
 
 
@@ -57,6 +59,8 @@ const showQuestion = () => {
   `
 }
 
+
+
 document.addEventListener('click', event => {
   if (event.target.classList.contains('response')) {
     if (event.target.dataset.response==event.target.dataset.answer) {
@@ -68,11 +72,15 @@ document.addEventListener('click', event => {
 })
 
 
-
-
+const countdownStart = () => {
+  timer-=1
+  document.getElementById("timer").innerHTML = `
+  ${timer}`
+}
 
 
 document.getElementById("start-button").addEventListener('click', event => {
   document.getElementById("quiz").classList.remove("hide-quiz")
+  setInterval(countdownStart, 1000)
   showQuestion()
 })
