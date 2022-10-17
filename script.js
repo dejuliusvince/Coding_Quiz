@@ -63,12 +63,14 @@ const showQuestion = () => {
 
 document.addEventListener('click', event => {
   if (event.target.classList.contains('response')) {
-    if (event.target.dataset.response==event.target.dataset.answer) {
+    if (event.target.dataset.response == event.target.dataset.answer) {
       displayedQuestion += 1
       score += 5
       showQuestion()
     } else {
+      const subtractTime = () => { timer -= 5 }
       displayedQuestion += 1
+      subtractTime()
       showQuestion()
     }
   }
@@ -76,14 +78,32 @@ document.addEventListener('click', event => {
 
 
 const countdownStart = () => {
-  timer-=1
-  document.getElementById("timer").innerHTML = `
+  if (timer <= 0) {
+    timeAtZero()
+    document.getElementById("timer").innerHTML = `
+    <p>GAME OVER</p>
+    `
+  } else {
+    timer -= 1
+    document.getElementById("timer").innerHTML = `
   ${timer}`
+  }
 }
 
+
+
+const timeAtZero = () => {
+  clearInterval()
+  document.getElementById("quiz").innerHTML = `
+  <h1>
+  You have run out of time, please try again! 
+  </h1>
+  `
+}
 
 document.getElementById("start-button").addEventListener('click', event => {
   document.getElementById("quiz").classList.remove("hide-quiz")
   setInterval(countdownStart, 1000)
   showQuestion()
 })
+
