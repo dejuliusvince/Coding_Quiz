@@ -1,3 +1,5 @@
+
+/*simple styling to improve aesthetics*/
 body {
   display: flex;
   flex-direction: column;
@@ -17,6 +19,8 @@ font-size: 150%;
   
 }
 
+
+/*Hiding elements on the page not in use*/
 .hide-button {
   display:none; 
 }
