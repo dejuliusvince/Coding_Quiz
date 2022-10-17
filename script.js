@@ -67,7 +67,10 @@ document.addEventListener('click', event => {
       displayedQuestion += 1
       score += 5
       showQuestion()
-    } 
+    } else {
+      displayedQuestion += 1
+      showQuestion()
+    }
   }
 })
 
