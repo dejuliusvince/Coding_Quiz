@@ -5,18 +5,18 @@
 -Allow user to select their response
 -Time the quiz
 */
-let score = 0;
-let timer = 60;
+let score = 0
+let timer = 60
 
 
-displayedQuestion = 0;
+displayedQuestion = 0
 
 
 let questions = [
   {
     question: 'Which of the following keywords can define a variable in Javascript?',
     responses: ['var', 'let', 'both'],
-    answer: 'all of the above'
+    answer: 'both'
   },
   {
     question: 'Which of the following functions will serialize an object into a JSON string?',
@@ -26,13 +26,13 @@ let questions = [
 ]
 
 const showQuestion = () => {
-  document.getElementById("question").innerHTML= `
+  document.getElementById("questionDiv").innerHTML = `
   <p>
   ${questions[displayedQuestion].question}
   </p>
   `
 
-  document.getElementById("response").innerHTML= `
+  document.getElementById("responseDiv").innerHTML = `
   <p
   class="response"
   data-response='${questions[displayedQuestion].responses[0]}'
@@ -58,12 +58,12 @@ const showQuestion = () => {
 }
 
 document.addEventListener('click', event => {
-  if(event.target.classList.contains('response')) {
-    if(event.target.dataset.response==event.target.dataset.answer) {
+  if (event.target.classList.contains('response')) {
+    if (event.target.dataset.response==event.target.dataset.answer) {
       displayedQuestion += 1
       score += 5
       showQuestion()
-    }
+    } 
   }
 })
 
@@ -72,7 +72,7 @@ document.addEventListener('click', event => {
 
 
 
-  document.getElementById("start-button").addEventListener('click', event => {
-    document.getElementById("quiz").classList.remove("hide-quiz")
-    showQuestion()
-  })
+document.getElementById("start-button").addEventListener('click', event => {
+  document.getElementById("quiz").classList.remove("hide-quiz")
+  showQuestion()
+})
