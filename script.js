@@ -32,8 +32,13 @@ let questions = [
   },
   {
     question: 'Items separated by a comma inside of square brackets make up which data structure?',
-    responses: 'variable', 'array', 
-
+    responses: ['variable', 'array', 'graph'],
+    answer: 'array'
+  },
+  {
+    question: 'What is the purpose of JS in web development?',
+    responses: ['Style elements on the page', 'Give elements on the page functionality and interactivity', 'Provide a basic structure for your webpage'],
+    answer: 'Give elements on the page functionality and interactivity'
   }
 ]
 
