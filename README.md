@@ -33,7 +33,7 @@
   GitHub: dejuliusvince
 
   ## Links
-  link to deployed app:  <br />
+  link to deployed app: https://dejuliusvince.github.io/Coding_Quiz/ <br />
   link to GitHub repository: https://github.com/dejuliusvince/Coding_Quiz
 
   
